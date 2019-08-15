@@ -27,25 +27,25 @@
 									<input class="form-control m-input"   type="text" placeholder="Email" name="email" autocomplete="off">
 								</div>
 								<div class="form-group m-form__group">
-									<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password">
+									<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Contraseña" name="password">
 								</div>
 								<div class="row m-login__form-sub">
 									<div class="col m--align-left m-login__form-left">
 										<label class="m-checkbox  m-checkbox--light">
 											<input type="checkbox" name="remember">
-											Remember me
+											Recuerdame
 											<span></span>
 										</label>
 									</div>
 									<div class="col m--align-right m-login__form-right">
 										<a href="javascript:;" id="m_login_forget_password" class="m-link">
-											Forget Password ?
+											¿Olvidaste tu contraseña?
 										</a>
 									</div>
 								</div>
 								<div class="m-login__form-action">
 									<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn">
-										Sign In
+										Registrarse
 									</button>
 								</div>
 							</form>
@@ -61,10 +61,10 @@
 							</div>
 							<form class="m-login__form m-form" action="">
 								<div class="form-group m-form__group">
-									<input class="form-control m-input" type="text" placeholder="Fullname" name="fullname">
+									<input class="form-control m-input" type="text" placeholder="Nombre completo" name="fullname">
 								</div>
 								<div class="form-group m-form__group">
-									<input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off">
+									<input class="form-control m-input" type="text" placeholder="Correo electrónico" name="email" autocomplete="off">
 								</div>
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="password" placeholder="Password" name="password">
@@ -76,9 +76,9 @@
 									<div class="col m--align-left">
 										<label class="m-checkbox m-checkbox--light">
 											<input type="checkbox" name="agree">
-											I Agree the
+											Acepto los
 											<a href="#" class="m-link m-link--focus">
-												terms and conditions
+												Tér
 											</a>
 											.
 											<span></span>
@@ -143,5 +143,68 @@
   <!--end::Page Snippets -->
 	</body>
 	<!-- end::Body -->
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<?php require("comunes/head.php"); ?>
+
+<body>
+ 
+
+<?php   require("comunes/nav.php"); ?>
+
+    <!-- Header -->
+    <header>
+       
+         <br><br>     <br> 
+    <form class="form-signin" action="login.php" method="POST">
+		<div style="text-align:center;color:red;font-weight:900"> 
+ <img   src="img/profile.png" alt="" width="128px">
+		<?php
+                        if(isset($_GET["error"]))
+                        {
+                            ?>
+                            <div class="alert alert-danger">
+                             <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo "Usuario no existe"; ?> !
+                         </div>
+                         <?php
+                     }
+                     ?>
+
+<?php
+                        if(isset($_GET["iniciar"]))
+                        {
+                            ?>
+                            <div class="alert alert-danger">
+                             <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo "Debe iniciar sesión"; ?> !
+                         </div>
+                         <?php
+                     }
+                     ?>
+
+
+
+                     
+      <h2 class="form-signin-heading" style="color:black">AUTENTICACIÓN</h2>
+      <input type="text" class="form-control" name="nombre_usuario" placeholder="Nombre de usuario" required="" autofocus="" />
+      <input type="password" class="form-control" name="clave" placeholder="Clave" required=""/>      
+       
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Aceptar</button> 
+        
+    </form>
+
+  </div>
+           
+    </header>
+
+ <?php   require("comunes/footer.php"); ?>
+
+  <?php   require("comunes/scripts.php"); ?>
+   
+
+</body>
 
 </html>
